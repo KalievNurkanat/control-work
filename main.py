@@ -23,18 +23,13 @@ def main(page: ft.Page):
             checkbox = ft.Checkbox(value=bool(is_bought),
                         on_change=lambda e: toggle_item(item_id, e.control.value))
 
-            def save_button(_):
-                main_db.update_items(item_id=item_id, new_item=item_field.value)
-                page.update()
-
             def delete_item(_):
                 main_db.delete_items(item_id=item_id)
                 
                 load_item()
             
             delete_item = ft.IconButton(icon=ft.Icons.DELETE,on_click=delete_item)
-            save_button = ft.IconButton(icon=ft.Icons.SAVE,on_click=save_button)
-            return ft.Row([checkbox,item_field,save_button,delete_item])
+            return ft.Row([checkbox,item_field,delete_item])
 
     def add_item(_):
         if item_input.value:

@@ -170,5 +170,5 @@ poetry.toml
 # ruff
 .ruff_cache/
 
-config.py
+
 purchase_list.db
